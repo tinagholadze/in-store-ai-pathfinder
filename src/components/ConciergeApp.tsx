@@ -144,7 +144,7 @@ export function ConciergeApp() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[radial-gradient(ellipse_at_top_left,oklch(0.94_0.03_220/0.5),transparent_55%),radial-gradient(ellipse_at_bottom_right,oklch(0.96_0.02_240/0.4),transparent_55%),oklch(0.985_0.003_260)] flex items-start justify-center py-6 px-2">
+    <div className="min-h-screen w-full bg-[radial-gradient(ellipse_at_top_left,oklch(0.88_0.06_300/0.55),transparent_55%),radial-gradient(ellipse_at_bottom_right,oklch(0.9_0.05_150/0.5),transparent_55%),oklch(0.97_0.008_280)] flex items-start justify-center py-6 px-2">
       <div className="relative w-full max-w-[400px] min-h-[760px] bg-background/95 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(15,15,15,0.18)] border border-foreground/8 ring-1 ring-foreground/5 overflow-hidden flex flex-col">
         <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
 
