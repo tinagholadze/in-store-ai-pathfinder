@@ -303,12 +303,12 @@ function DiscoverView({
 
         <Button
           variant="outline"
-          className="w-full h-12 rounded-2xl mt-2 mb-2"
+          className="w-full h-12 rounded-2xl mt-3 mb-3"
           onClick={onVoice}
           disabled={voiceLoading}
         >
           <Mic className={cn("h-4 w-4", voiceLoading && "animate-pulse")} />
-          {voiceLoading ? "Listening..." : "Describe My Trip"}
+          {voiceLoading ? "Listening..." : "Start My Journey"}
         </Button>
 
         <Button
