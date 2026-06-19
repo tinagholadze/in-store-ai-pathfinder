@@ -12,6 +12,7 @@ import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { CATALOG, CATEGORIES, type Product } from "@/lib/concierge-data";
 import { FlickeringGrid } from "@/components/ui/flickering-grid-hero";
+import { SparklesText } from "@/components/ui/sparkles-text";
 
 type View =
   | "discover"
