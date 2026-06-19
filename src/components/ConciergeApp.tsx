@@ -144,8 +144,8 @@ export function ConciergeApp() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[radial-gradient(ellipse_at_top_left,oklch(0.82_0.1_310/0.6),transparent_55%),radial-gradient(ellipse_at_bottom_right,oklch(0.86_0.1_140/0.55),transparent_55%),oklch(0.96_0.01_300)] flex items-start justify-center py-6 px-2">
-      <div className="relative w-full max-w-[400px] min-h-[760px] bg-background/95 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(15,15,15,0.18)] border border-foreground/8 ring-1 ring-foreground/5 overflow-hidden flex flex-col">
+    <div className="min-h-screen w-full bg-[radial-gradient(ellipse_at_top_left,oklch(0.55_0.12_215/0.8),transparent_60%),radial-gradient(ellipse_at_top_right,oklch(0.45_0.1_255/0.6),transparent_50%),radial-gradient(ellipse_at_bottom_left,oklch(0.35_0.08_250/0.7),transparent_55%),radial-gradient(ellipse_at_60%_40%,oklch(0.6_0.14_195/0.5),transparent_50%),oklch(0.2_0.06_255)] flex items-start justify-center py-6 px-2">
+      <div className="relative w-full max-w-[400px] min-h-[760px] bg-background/90 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] border border-white/10 ring-1 ring-white/5 overflow-hidden flex flex-col">
         <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
 
         <div className="flex-1 overflow-y-auto no-scroll pb-24">
