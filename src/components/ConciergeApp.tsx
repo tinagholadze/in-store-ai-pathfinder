@@ -318,22 +318,6 @@ function DiscoverView({
             </>
           )}
         </Button>
-          className="w-full h-14 rounded-2xl text-base font-semibold shadow-lg"
-          onClick={onGenerate}
-          disabled={aiLoading}
-        >
-          {aiLoading ? (
-            <>
-              <Sparkles className="h-5 w-5 animate-spin" />
-              Curating your kit...
-            </>
-          ) : (
-            <>
-              <Sparkles className="h-5 w-5" />
-              Start My Journey
-            </>
-          )}
-        </Button>
       </div>
     </div>
   );
