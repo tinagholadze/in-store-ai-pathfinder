@@ -301,6 +301,8 @@ function DiscoverView({
           </Field>
         </div>
 
+        <div className="h-1" />
+
         <Button
           variant="outline"
           className="w-full h-12 rounded-2xl mt-2"
@@ -310,6 +312,8 @@ function DiscoverView({
           <Mic className={cn("h-4 w-4", voiceLoading && "animate-pulse")} />
           {voiceLoading ? "Listening..." : "Describe My Trip"}
         </Button>
+
+        <div className="h-1" />
 
         <Button
           className="w-full h-14 rounded-2xl text-base font-semibold shadow-lg"
