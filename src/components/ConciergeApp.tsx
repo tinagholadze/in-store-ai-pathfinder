@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { CATALOG, CATEGORIES, type Product } from "@/lib/concierge-data";
-import { Tiles } from "@/components/ui/tiles";
+import { FlickeringGrid } from "@/components/ui/flickering-grid-hero";
 
 type View =
   | "discover"
@@ -146,7 +146,14 @@ export function ConciergeApp() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-white">
-      <Tiles className="absolute inset-0" rows={80} cols={60} tileSize="sm" />
+      <FlickeringGrid
+        className="absolute inset-0"
+        squareSize={4}
+        gridGap={6}
+        flickerChance={0.25}
+        color="#2563eb"
+        maxOpacity={0.35}
+      />
       <div className="relative z-10 flex items-start justify-center py-6 px-2">
         <div className="w-full max-w-[400px] min-h-[760px] bg-white/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden flex flex-col">
           <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
