@@ -324,7 +324,7 @@ function DiscoverView({
           ) : (
             <>
               <Sparkles className="h-5 w-5" />
-              Generate Gear Kit
+              Start My Journey
             </>
           )}
         </Button>
