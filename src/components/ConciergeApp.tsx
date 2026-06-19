@@ -159,7 +159,7 @@ export function ConciergeApp() {
         <div className="w-full max-w-[400px] min-h-[760px] bg-white/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden flex flex-col">
           <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
 
-          <div className="flex-1 overflow-y-auto no-scroll pb-24">
+          <div className="flex-1 overflow-y-auto no-scroll pb-16">
             {view === "discover" && (
               <DiscoverView
                 trip={trip}
