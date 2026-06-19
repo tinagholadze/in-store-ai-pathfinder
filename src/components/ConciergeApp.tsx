@@ -146,7 +146,7 @@ export function ConciergeApp() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-white">
-      <Tiles className="absolute inset-0" rows={60} cols={20} tileSize="md" />
+      <Tiles className="absolute inset-0" rows={80} cols={60} tileSize="sm" />
       <div className="relative z-10 flex items-start justify-center py-6 px-2">
         <div className="w-full max-w-[400px] min-h-[760px] bg-white/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden flex flex-col">
           <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
