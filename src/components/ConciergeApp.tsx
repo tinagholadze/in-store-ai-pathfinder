@@ -144,8 +144,8 @@ export function ConciergeApp() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-muted to-background flex items-start justify-center py-6 px-2">
-      <div className="relative w-full max-w-[400px] min-h-[760px] bg-background rounded-[2rem] shadow-2xl border overflow-hidden flex flex-col">
+    <div className="dark min-h-screen w-full bg-[radial-gradient(ellipse_at_top,oklch(0.3_0.08_200/0.35),transparent_60%),radial-gradient(ellipse_at_bottom,oklch(0.4_0.15_165/0.2),transparent_55%),oklch(0.1_0.02_260)] flex items-start justify-center py-6 px-2">
+      <div className="relative w-full max-w-[400px] min-h-[760px] bg-background/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] border border-white/10 ring-1 ring-white/5 overflow-hidden flex flex-col">
         <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
 
         <div className="flex-1 overflow-y-auto no-scroll pb-24">
