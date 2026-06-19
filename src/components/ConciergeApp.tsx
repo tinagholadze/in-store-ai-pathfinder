@@ -256,7 +256,7 @@ function DiscoverView({
             <Sparkles className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">ScandIT</h1>
+            <SparklesText text="ScandIT" className="text-2xl font-bold tracking-tight" colors={{ first: "#2563eb", second: "#60a5fa" }} sparklesCount={12} />
             <p className="text-xs text-muted-foreground">Just Scan It</p>
           </div>
         </div>
