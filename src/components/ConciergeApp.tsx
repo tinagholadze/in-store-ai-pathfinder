@@ -302,6 +302,16 @@ function DiscoverView({
         </div>
 
         <Button
+          variant="outline"
+          className="w-full h-12 rounded-2xl mt-3 mb-3"
+          onClick={onVoice}
+          disabled={voiceLoading}
+        >
+          <Mic className={cn("h-4 w-4", voiceLoading && "animate-pulse")} />
+          {voiceLoading ? "Listening..." : "Describe what you are up to"}
+        </Button>
+
+        <Button
           className="w-full h-14 rounded-2xl text-base font-semibold shadow-lg"
           onClick={onGenerate}
           disabled={aiLoading}
