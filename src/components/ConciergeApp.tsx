@@ -398,31 +398,69 @@ function ShoppingView({
 }) {
   if (cart.length === 0) {
     return (
-      <div className="px-6 pt-16 text-center">
-        <ShoppingBag className="h-12 w-12 mx-auto text-muted-foreground" />
-        <p className="mt-4 font-semibold">No active mission</p>
-        <p className="text-sm text-muted-foreground">Plan a trip to generate your kit.</p>
+      <div className="animate-in fade-in duration-300 flex flex-col h-full">
+        <div className="px-6 pt-10 pb-6">
+          <h2 className="text-3xl font-bold tracking-tight">Mission Cart</h2>
+        </div>
+
+        <div className="mx-5 rounded-2xl bg-muted/60 p-5">
+          <div className="flex items-center justify-between mb-3">
+            <span className="text-xs font-semibold tracking-wider text-muted-foreground">PROGRESS</span>
+            <span className="text-sm font-bold text-primary">0 / 0 ITEMS</span>
+          </div>
+          <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+            <div className="h-full w-0 rounded-full bg-primary" />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 px-5 mt-4">
+          <Button className="rounded-2xl h-12 text-sm font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20" onClick={() => onScan("verify")}>
+            <ScanLine className="h-4 w-4 mr-2" /> Scan Shelf
+          </Button>
+          <Button variant="outline" className="rounded-2xl h-12 text-sm font-semibold border-border hover:bg-muted" onClick={() => onScan("upgrade")}>
+            <Sparkles className="h-4 w-4 mr-2" /> Find Similar
+          </Button>
+        </div>
+
+        <div className="flex-1 flex flex-col items-center justify-center px-6 pb-24">
+          <div className="grid h-20 w-20 place-items-center rounded-full bg-muted">
+            <ShoppingBag className="h-8 w-8 text-muted-foreground" />
+          </div>
+          <p className="mt-5 text-base text-muted-foreground">Your mission cart is empty.</p>
+          <button className="mt-3 text-sm font-bold text-primary tracking-wide uppercase" onClick={() => { /* no-op, user taps discover tab */ }}>
+            Head to Discover
+          </button>
+        </div>
       </div>
     );
   }
   const pct = (collectedCount / cart.length) * 100;
   return (
     <div className="animate-in fade-in duration-300">
-      <div className="sticky top-0 z-10 bg-background/95 backdrop-blur px-5 pt-6 pb-4 border-b">
-        <h2 className="text-2xl font-bold">Your Mission</h2>
-        <div className="flex items-center justify-between mt-2 mb-2">
-          <span className="text-sm text-muted-foreground">{collectedCount} / {cart.length} Items Collected</span>
-          {allCollected && <Badge>Complete</Badge>}
+      <div className="px-6 pt-10 pb-6">
+        <h2 className="text-3xl font-bold tracking-tight">Mission Cart</h2>
+      </div>
+
+      <div className="mx-5 rounded-2xl bg-muted/60 p-5">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-xs font-semibold tracking-wider text-muted-foreground">PROGRESS</span>
+          <span className="text-sm font-bold text-primary">{collectedCount} / {cart.length} ITEMS</span>
         </div>
-        <Progress value={pct} className="h-2" />
-        <div className="grid grid-cols-2 gap-2 mt-3">
-          <Button variant="outline" className="rounded-xl h-10" onClick={() => onScan("verify")}>
-            <ScanLine className="h-4 w-4" /> Scan Shelf
-          </Button>
-          <Button variant="outline" className="rounded-xl h-10" onClick={() => onScan("upgrade")}>
-            <Sparkles className="h-4 w-4" /> Find Similar
-          </Button>
+        <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+          <div
+            className="h-full rounded-full bg-primary transition-all duration-500"
+            style={{ width: `${pct}%` }}
+          />
         </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3 px-5 mt-4">
+        <Button className="rounded-2xl h-12 text-sm font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20" onClick={() => onScan("verify")}>
+          <ScanLine className="h-4 w-4 mr-2" /> Scan Shelf
+        </Button>
+        <Button variant="outline" className="rounded-2xl h-12 text-sm font-semibold border-border hover:bg-muted" onClick={() => onScan("upgrade")}>
+          <Sparkles className="h-4 w-4 mr-2" /> Find Similar
+        </Button>
       </div>
 
       <div className="px-5 py-4 space-y-3">
