@@ -155,11 +155,11 @@ export function ConciergeApp() {
         color="#2563eb"
         maxOpacity={0.35}
       />
-      <div className="relative z-10 flex items-start justify-center py-6 px-2">
-        <div className="w-full max-w-[400px] min-h-[760px] bg-white/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden flex flex-col">
+      <div className="relative z-10 flex items-start justify-center py-4 px-2">
+        <div className="w-full max-w-[400px] bg-white/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden flex flex-col">
           <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
 
-          <div className="flex-1 overflow-y-auto no-scroll pb-16">
+          <div className="flex-1 overflow-y-auto no-scroll pb-4">
             {view === "discover" && (
               <DiscoverView
                 trip={trip}
