@@ -145,82 +145,85 @@ export function ConciergeApp() {
   };
 
   return (
-    <GlowBackground className="flex items-start justify-center py-6 px-2">
-      <div className="relative w-full max-w-[400px] min-h-[760px] bg-white/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden flex flex-col">
-        <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
+    <div className="relative min-h-screen w-full overflow-hidden bg-white">
+      <Tiles className="absolute inset-0" rows={60} cols={20} tileSize="md" />
+      <div className="relative z-10 flex items-start justify-center py-6 px-2">
+        <div className="w-full max-w-[400px] min-h-[760px] bg-white/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden flex flex-col">
+          <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
 
-        <div className="flex-1 overflow-y-auto no-scroll pb-24">
-          {view === "discover" && (
-            <DiscoverView
-              trip={trip}
-              setTrip={setTrip}
-              onVoice={handleVoice}
-              voiceLoading={voiceLoading}
-              onGenerate={handleGenerate}
-              aiLoading={aiLoading}
-            />
-          )}
-          {view === "recommendations" && (
-            <RecommendationsView
-              items={recommended}
-              budget={trip.budget}
-              onBack={() => setView("discover")}
-              onStart={startMission}
-            />
-          )}
-          {view === "shopping" && (
-            <ShoppingView
-              cart={cart}
-              collectedCount={collectedCount}
-              onOpenMap={openMap}
-              onScan={(mode) => openScanner(mode)}
-              onComplete={() => setView("completion")}
-              allCollected={allCollected}
-            />
-          )}
-          {view === "map" && activeItem && (
-            <MapView
-              item={activeItem}
-              onBack={() => setView("shopping")}
-              onArrived={() => openScanner("verify", activeItem)}
-            />
-          )}
-          {view === "scanner" && activeItem && (
-            <ScannerView
-              item={activeItem}
-              mode={scanMode}
-              scanning={scanning}
-              onCapture={capture}
-              onBack={() => setView(activeItem ? "shopping" : "shopping")}
-            />
-          )}
-          {view === "verify" && activeItem && (
-            <VerifyView
-              item={activeItem}
-              mode={scanMode}
-              onConfirm={markCollected}
-              onBack={() => setView("scanner")}
-            />
-          )}
-          {view === "completion" && (
-            <CompletionView
-              cart={cart}
-              total={totalCost}
-              remaining={remaining}
-              onDone={() => {
-                setCart([]);
-                setTrip(DEFAULT_TRIP);
-                setView("discover");
-                setTab("discover");
-              }}
-            />
-          )}
-          {view === "inventory" && <InventoryView />}
+          <div className="flex-1 overflow-y-auto no-scroll pb-24">
+            {view === "discover" && (
+              <DiscoverView
+                trip={trip}
+                setTrip={setTrip}
+                onVoice={handleVoice}
+                voiceLoading={voiceLoading}
+                onGenerate={handleGenerate}
+                aiLoading={aiLoading}
+              />
+            )}
+            {view === "recommendations" && (
+              <RecommendationsView
+                items={recommended}
+                budget={trip.budget}
+                onBack={() => setView("discover")}
+                onStart={startMission}
+              />
+            )}
+            {view === "shopping" && (
+              <ShoppingView
+                cart={cart}
+                collectedCount={collectedCount}
+                onOpenMap={openMap}
+                onScan={(mode) => openScanner(mode)}
+                onComplete={() => setView("completion")}
+                allCollected={allCollected}
+              />
+            )}
+            {view === "map" && activeItem && (
+              <MapView
+                item={activeItem}
+                onBack={() => setView("shopping")}
+                onArrived={() => openScanner("verify", activeItem)}
+              />
+            )}
+            {view === "scanner" && activeItem && (
+              <ScannerView
+                item={activeItem}
+                mode={scanMode}
+                scanning={scanning}
+                onCapture={capture}
+                onBack={() => setView(activeItem ? "shopping" : "shopping")}
+              />
+            )}
+            {view === "verify" && activeItem && (
+              <VerifyView
+                item={activeItem}
+                mode={scanMode}
+                onConfirm={markCollected}
+                onBack={() => setView("scanner")}
+              />
+            )}
+            {view === "completion" && (
+              <CompletionView
+                cart={cart}
+                total={totalCost}
+                remaining={remaining}
+                onDone={() => {
+                  setCart([]);
+                  setTrip(DEFAULT_TRIP);
+                  setView("discover");
+                  setTab("discover");
+                }}
+              />
+            )}
+            {view === "inventory" && <InventoryView />}
+          </div>
+
+          <BottomNav tab={tab} onChange={goTab} />
         </div>
-
-        <BottomNav tab={tab} onChange={goTab} />
       </div>
-    </GlowBackground>
+    </div>
   );
 }
 
