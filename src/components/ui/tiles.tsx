@@ -41,12 +41,12 @@ export function Tiles({
   return (
     <div
       className={cn(
-        "absolute inset-0 overflow-hidden flex flex-wrap content-start justify-center -z-10",
+        "absolute inset-0 overflow-hidden flex flex-col items-center -z-10",
         className
       )}
     >
       {rowsArray.map((_, i) => (
-        <div key={`row-${i}`} className="flex">
+        <div key={`row-${i}`} className="flex flex-shrink-0">
           {colsArray.map((_, j) => {
             const isHovered =
               hovered &&
@@ -57,7 +57,7 @@ export function Tiles({
               <motion.div
                 key={`tile-${i}-${j}`}
                 className={cn(
-                  "border border-black/[0.03] bg-transparent transition-colors duration-300",
+                  "flex-shrink-0 border border-black/[0.03] bg-transparent transition-colors duration-300",
                   tileSizes[tileSize],
                   tileClassName
                 )}
