@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { CATALOG, CATEGORIES, type Product } from "@/lib/concierge-data";
+import { GlowBackground } from "@/components/ui/background-components";
 
 type View =
   | "discover"
@@ -219,7 +220,7 @@ export function ConciergeApp() {
 
         <BottomNav tab={tab} onChange={goTab} />
       </div>
-    </div>
+    </GlowBackground>
   );
 }
 
