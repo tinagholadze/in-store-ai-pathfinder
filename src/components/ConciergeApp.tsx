@@ -405,8 +405,8 @@ function ShoppingView({
 
         <div className="mx-5 rounded-2xl bg-muted/60 p-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-semibold tracking-wider text-muted-foreground">PROGRESS</span>
-            <span className="text-sm font-bold text-primary">0 / 0 ITEMS</span>
+            <span className="text-xs font-semibold tracking-wider text-muted-foreground">Progress</span>
+            <span className="text-sm font-bold text-primary">0 / 0 Items Collected</span>
           </div>
           <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
             <div className="h-full w-0 rounded-full bg-primary" />
@@ -443,8 +443,8 @@ function ShoppingView({
 
       <div className="mx-5 rounded-2xl bg-muted/60 p-5">
         <div className="flex items-center justify-between mb-3">
-          <span className="text-xs font-semibold tracking-wider text-muted-foreground">PROGRESS</span>
-          <span className="text-sm font-bold text-primary">{collectedCount} / {cart.length} ITEMS</span>
+          <span className="text-xs font-semibold tracking-wider text-muted-foreground">Progress</span>
+          <span className="text-sm font-bold text-primary">{collectedCount} / {cart.length} Items Collected</span>
         </div>
         <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
           <div
@@ -456,10 +456,10 @@ function ShoppingView({
 
       <div className="grid grid-cols-2 gap-3 px-5 mt-4">
         <Button className="rounded-2xl h-12 text-sm font-semibold bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg shadow-primary/20" onClick={() => onScan("verify")}>
-          <ScanLine className="h-4 w-4 mr-2" /> Scan Shelf
+          <Camera className="h-4 w-4 mr-2" /> Scan Shelf
         </Button>
         <Button variant="outline" className="rounded-2xl h-12 text-sm font-semibold border-border hover:bg-muted" onClick={() => onScan("upgrade")}>
-          <Sparkles className="h-4 w-4 mr-2" /> Find Similar
+          <Search className="h-4 w-4 mr-2" /> Find Similar
         </Button>
       </div>
 
@@ -467,24 +467,41 @@ function ShoppingView({
         {cart.map((item) => (
           <Card
             key={item.id}
-            onClick={() => !item.collected && onOpenMap(item)}
             className={cn(
               "p-3 flex items-center gap-3 rounded-2xl transition",
-              item.collected ? "opacity-60" : "cursor-pointer hover:shadow-md active:scale-[0.99]",
+              item.collected ? "opacity-50 bg-muted/40" : "bg-card hover:shadow-md",
             )}
           >
-            <div className="grid h-12 w-12 place-items-center rounded-xl bg-muted text-2xl shrink-0">{item.image}</div>
+            <div className={cn(
+              "grid h-12 w-12 place-items-center rounded-xl text-2xl shrink-0",
+              item.collected ? "bg-muted" : "bg-muted"
+            )}>
+              {item.image}
+            </div>
             <div className="flex-1 min-w-0">
-              <p className={cn("font-semibold truncate", item.collected && "line-through")}>{item.name}</p>
-              <p className="text-xs text-muted-foreground flex items-center gap-1">
+              <p className={cn("font-semibold truncate", item.collected && "line-through text-muted-foreground")}>
+                {item.name}
+              </p>
+              <p className={cn("text-xs flex items-center gap-1", item.collected ? "text-muted-foreground" : "text-muted-foreground")}>
                 <MapPin className="h-3 w-3" /> Zone {item.zone} · {item.price} CHF
                 {item.upgraded && <Badge variant="secondary" className="ml-1 text-[10px]">Upgraded</Badge>}
               </p>
             </div>
             {item.collected ? (
-              <CheckCircle2 className="h-5 w-5 text-primary" />
+              <div className="grid h-9 w-9 place-items-center rounded-full bg-primary/10">
+                <Check className="h-5 w-5 text-primary" />
+              </div>
             ) : (
-              <MapPin className="h-5 w-5 text-muted-foreground" />
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onOpenMap(item);
+                }}
+                className="grid h-9 w-9 place-items-center rounded-full bg-primary/10 hover:bg-primary/20 transition cursor-pointer"
+                aria-label={`Open map directions for ${item.name}`}
+              >
+                <MapPin className="h-4 w-4 text-primary" />
+              </button>
             )}
           </Card>
         ))}
