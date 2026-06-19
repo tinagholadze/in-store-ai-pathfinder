@@ -255,13 +255,10 @@ function DiscoverView({
             <Sparkles className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">AI Concierge</h1>
-            <p className="text-xs text-muted-foreground">Powered by AI</p>
+            <h1 className="text-2xl font-bold tracking-tight">ScandIT</h1>
+            <p className="text-xs text-muted-foreground">Just Scan It</p>
           </div>
         </div>
-        <p className="relative mt-4 text-sm text-muted-foreground">
-          Plan your trip and we'll build the perfect gear kit for you.
-        </p>
       </div>
 
       <div className="px-5 pt-5 space-y-3">
