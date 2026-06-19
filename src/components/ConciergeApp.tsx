@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
 import { CATALOG, CATEGORIES, type Product } from "@/lib/concierge-data";
+import { GlowBackground } from "@/components/ui/background-components";
 
 type View =
   | "discover"
@@ -144,8 +145,8 @@ export function ConciergeApp() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white flex items-start justify-center py-6 px-2">
-      <div className="relative w-full max-w-[400px] min-h-[760px] bg-white rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.1)] border border-black/5 overflow-hidden flex flex-col">
+    <GlowBackground className="flex items-start justify-center py-6 px-2">
+      <div className="relative w-full max-w-[400px] min-h-[760px] bg-white/80 backdrop-blur-xl rounded-[2.25rem] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.15)] border border-black/5 overflow-hidden flex flex-col">
         <style>{`.no-scroll::-webkit-scrollbar{display:none}.no-scroll{scrollbar-width:none}`}</style>
 
         <div className="flex-1 overflow-y-auto no-scroll pb-24">
@@ -219,7 +220,7 @@ export function ConciergeApp() {
 
         <BottomNav tab={tab} onChange={goTab} />
       </div>
-    </div>
+    </GlowBackground>
   );
 }
 
