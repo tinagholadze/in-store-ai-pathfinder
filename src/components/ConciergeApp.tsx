@@ -65,7 +65,7 @@ export function ConciergeApp() {
   const goTab = (t: Tab) => {
     setTab(t);
     if (t === "discover") setView("discover");
-    else if (t === "shopping") setView(cart.length ? "shopping" : "discover");
+    else if (t === "shopping") setView("shopping");
     else setView("inventory");
   };
 
